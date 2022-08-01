@@ -17,7 +17,11 @@ export function NavBar() {
         paddingRight: "50px",
       }}
     >
-      <Container maxWidth="xl">
+      <Container
+        disableGutters
+        maxWidth="xl"
+        sx={{ paddingLeft: 0, paddingRight: 0 }}
+      >
         <Toolbar disableGutters>
           <Typography
             variant="h6"
