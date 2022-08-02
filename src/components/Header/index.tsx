@@ -14,13 +14,13 @@ export function Header() {
   ];
 
   return (
-    // styling for div containing header
-    //   style={{
-    //     backgroundColor: "#424242",
-    //     width: "100%",
-    //     height: 430,
-    //   }}
-    <Box>
+    <Box
+      sx={{
+        backgroundColor: "#424242",
+        paddingLeft: "120px",
+        paddingBottom: "30px",
+      }}
+    >
       <Grid
         container
         spacing={2}

@@ -8,7 +8,12 @@ interface FooterProps {}
 
 export function Footer({}: FooterProps) {
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "#343434",
+        padding: "10px 120px 10px",
+      }}
+    >
       <Grid container justifyContent="space-between" alignItems="center">
         <Grid item>
           <Grid container>

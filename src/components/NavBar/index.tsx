@@ -13,13 +13,13 @@ export function NavBar() {
     <AppBar
       sx={{
         backgroundColor: "#343434",
-        paddingLeft: "50px",
-        paddingRight: "50px",
+        paddingLeft: "120px",
+        paddingRight: "120px",
       }}
     >
       <Container
         disableGutters
-        maxWidth="xl"
+        maxWidth={false}
         sx={{ paddingLeft: 0, paddingRight: 0 }}
       >
         <Toolbar disableGutters>
