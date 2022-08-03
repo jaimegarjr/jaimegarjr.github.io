@@ -16,6 +16,7 @@ export function CardEntry({ icon, title, description, dates }: CardEntryProps) {
         borderRadius: "10px",
         display: "inline-block",
         padding: "16px",
+        minWidth: 300,
       }}
     >
       <CardContent

@@ -32,6 +32,7 @@ export function NavBar() {
               fontFamily: "Poppins",
               color: "inherit",
               textDecoration: "none",
+              letterSpacing: 5,
             }}
           >
             JAIME GARCIA, JR.
