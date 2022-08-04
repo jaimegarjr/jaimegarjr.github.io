@@ -7,6 +7,10 @@ import React from "react";
 interface FooterProps {}
 
 export function Footer({}: FooterProps) {
+  const handleNewTabLink = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div
       style={{
@@ -18,17 +22,34 @@ export function Footer({}: FooterProps) {
         <Grid item>
           <Grid container>
             <Grid item>
-              <IconButton sx={{ color: "#FFFFFF" }}>
+              <IconButton
+                sx={{ color: "#FFFFFF" }}
+                onClick={() =>
+                  handleNewTabLink(
+                    "https://www.linkedin.com/in/jaime-garcia-jr/"
+                  )
+                }
+              >
                 <LinkedInIcon />
               </IconButton>
             </Grid>
             <Grid item>
-              <IconButton sx={{ color: "#FFFFFF" }}>
+              <IconButton
+                sx={{ color: "#FFFFFF" }}
+                onClick={() =>
+                  handleNewTabLink("https://github.com/jaimegarjr")
+                }
+              >
                 <GitHubIcon />
               </IconButton>
             </Grid>
             <Grid item>
-              <IconButton sx={{ color: "#FFFFFF" }}>
+              <IconButton
+                sx={{ color: "#FFFFFF" }}
+                onClick={() =>
+                  handleNewTabLink("https://www.instagram.com/jaimeg2725/")
+                }
+              >
                 <InstagramIcon />
               </IconButton>
             </Grid>

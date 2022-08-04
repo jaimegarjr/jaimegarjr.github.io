@@ -27,7 +27,27 @@ export function Section({ title, listItems }: SectionProps) {
       >
         {title}
       </Typography>
-      <Grid container sx={{ flexWrap: "nowrap" }} spacing={5}>
+      <Grid
+        container
+        sx={{
+          flexWrap: "nowrap",
+          overflowY: "hidden",
+          overflowX: "auto",
+          "::-webkit-scrollbar": {
+            height: "10px",
+            borderRadius: "5px",
+          },
+          "::-webkit-scrollbar-track": {
+            borderRadius: "5px",
+            background: "#343434",
+          },
+          "::-webkit-scrollbar-thumb:horizontal": {
+            borderRadius: "5px",
+            background: "white",
+          },
+        }}
+        spacing={5}
+      >
         {listItems.map((e) => {
           return (
             <Grid item>
