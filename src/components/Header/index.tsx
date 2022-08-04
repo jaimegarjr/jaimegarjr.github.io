@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Box, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { HeaderText } from "./HeaderText";
 import { HeaderAvatar } from "./HeaderAvatar";
 import DownloadIcon from "@mui/icons-material/Download";
@@ -35,6 +35,7 @@ export function Header() {
                 label={"resume"}
                 variant="contained"
                 icon={<DownloadIcon />}
+                url={"/assets/Resume - Jaime Garcia, Jr. (RECENT).pdf"}
               />
             </Grid>
             <Grid item>
@@ -42,6 +43,7 @@ export function Header() {
                 label={"github"}
                 variant="contained"
                 icon={<GitHubIcon />}
+                url={"https://github.com/jaimegarjr"}
               />
             </Grid>
           </Grid>

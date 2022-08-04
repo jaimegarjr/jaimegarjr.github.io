@@ -5,9 +5,14 @@ interface ActionButtonProps {
   label: string;
   variant?: "text" | "contained" | "outlined" | undefined;
   icon?: React.ReactNode;
+  url?: string;
 }
 
-export function ActionButton({ label, variant, icon }: ActionButtonProps) {
+export function ActionButton({ label, variant, icon, url }: ActionButtonProps) {
+  const handleNewTabLink = () => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <Button
       sx={{
@@ -20,6 +25,7 @@ export function ActionButton({ label, variant, icon }: ActionButtonProps) {
       }}
       variant={variant}
       startIcon={icon}
+      onClick={handleNewTabLink}
     >
       {label}
     </Button>
