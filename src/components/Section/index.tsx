@@ -7,6 +7,7 @@ interface Entry {
   title: string;
   description: string;
   dates: string;
+  url?: string;
 }
 
 interface SectionProps {
@@ -62,6 +63,7 @@ export function Section({ title, listItems }: SectionProps) {
                 title={e.title}
                 description={e.description}
                 dates={e.dates}
+                url={e.url ? e.url : undefined}
               />
             </Grid>
           );

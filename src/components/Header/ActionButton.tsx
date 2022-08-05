@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import React from "react";
+import { handleClickUrl } from "../utils/handleClickUrl";
 
 interface ActionButtonProps {
   label: string;
@@ -9,10 +10,6 @@ interface ActionButtonProps {
 }
 
 export function ActionButton({ label, variant, icon, url }: ActionButtonProps) {
-  const handleNewTabLink = () => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <Button
       sx={{
@@ -25,7 +22,7 @@ export function ActionButton({ label, variant, icon, url }: ActionButtonProps) {
       }}
       variant={variant}
       startIcon={icon}
-      onClick={handleNewTabLink}
+      onClick={url ? () => handleClickUrl(url) : undefined}
     >
       {label}
     </Button>
