@@ -33,9 +33,15 @@ export function CardEntry({ icon, title, description, dates }: CardEntryProps) {
           alignItems="center"
         >
           <Avatar
-            sx={{ height: 118, width: 118, boxShadow: "0px 1px 4px #161616" }}
+            sx={{
+              height: 118,
+              width: 118,
+              boxShadow: "0px 1px 4px #161616",
+              marginBottom: "10px",
+            }}
             src={icon}
           />
+
           <Typography
             sx={{
               fontFamily: "Poppins",

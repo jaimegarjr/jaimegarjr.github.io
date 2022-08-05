@@ -21,17 +21,17 @@ function App() {
       />
       <Header />
       <Box
-        style={{
+        sx={{
           backgroundColor: "#525252",
-          padding: "30px 0px 30px 120px",
+          padding: { xs: "10px 50px 10px", md: "30px 0px 30px 120px" },
         }}
       >
         <Section title={"Experience"} listItems={experienceData} />
       </Box>
       <Box
-        style={{
+        sx={{
           backgroundColor: "#737373",
-          padding: "30px 0px 30px 120px",
+          padding: { xs: "10px 50px 10px", md: "30px 0px 30px 120px" },
         }}
       >
         <Section title={"Projects"} listItems={projectData} />

@@ -17,8 +17,7 @@ export function NavBar() {
     <AppBar
       sx={{
         backgroundColor: "#343434",
-        paddingLeft: "120px",
-        paddingRight: "120px",
+        padding: { xs: "10px 50px 10px", md: "0px 120px 0px" },
       }}
     >
       <Container

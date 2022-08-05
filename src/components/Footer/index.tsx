@@ -1,4 +1,4 @@
-import { Grid, IconButton, Typography } from "@mui/material";
+import { Box, Grid, IconButton, Typography } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -12,10 +12,10 @@ export function Footer({}: FooterProps) {
   };
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         backgroundColor: "#343434",
-        padding: "10px 120px 10px",
+        padding: { xs: "10px 20px 10px", md: "10px 120px 10px" },
       }}
     >
       <Grid container justifyContent="space-between" alignItems="center">
@@ -63,6 +63,6 @@ export function Footer({}: FooterProps) {
           </Typography>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 }

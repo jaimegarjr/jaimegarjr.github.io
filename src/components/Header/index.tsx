@@ -17,8 +17,7 @@ export function Header() {
     <Box
       sx={{
         backgroundColor: "#424242",
-        paddingLeft: "120px",
-        paddingBottom: "30px",
+        padding: { xs: "10px 50px 10px", md: "0px 120px 30px" },
       }}
     >
       <Grid
@@ -49,7 +48,11 @@ export function Header() {
           </Grid>
         </Grid>
         <Grid item md={7}>
-          <Grid container spacing={2} style={{ flexWrap: "nowrap" }}>
+          <Grid
+            container
+            spacing={2}
+            sx={{ flexWrap: "nowrap", display: { xs: "none", md: "flex" } }}
+          >
             {images.map((i: string, index: number) => {
               return (
                 <Grid item>
