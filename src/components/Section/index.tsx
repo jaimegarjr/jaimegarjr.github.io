@@ -23,12 +23,14 @@ export function Section({ title, listItems }: SectionProps) {
           fontWeight: 600,
           fontSize: 36,
           color: "#FFFFFF",
+          marginBottom: "10px",
         }}
       >
         {title}
       </Typography>
       <Grid
         container
+        columnGap={5}
         sx={{
           flexWrap: "nowrap",
           overflowY: "hidden",
@@ -46,11 +48,15 @@ export function Section({ title, listItems }: SectionProps) {
             background: "white",
           },
         }}
-        spacing={5}
       >
         {listItems.map((e) => {
           return (
-            <Grid item>
+            <Grid
+              item
+              sx={{
+                marginBottom: "10px",
+              }}
+            >
               <CardEntry
                 icon={e.icon}
                 title={e.title}

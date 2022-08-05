@@ -24,7 +24,7 @@ function App() {
         id="experience"
         sx={{
           backgroundColor: "#525252",
-          padding: { xs: "10px 50px 10px", md: "30px 0px 30px 120px" },
+          padding: { xs: "10px 50px 10px", md: "30px 120px 30px 120px" },
         }}
       >
         <Section title={"Experience"} listItems={experienceData} />
@@ -33,7 +33,7 @@ function App() {
         id="projects"
         sx={{
           backgroundColor: "#737373",
-          padding: { xs: "10px 50px 10px", md: "30px 0px 30px 120px" },
+          padding: { xs: "10px 50px 10px", md: "30px 120px 30px 120px" },
         }}
       >
         <Section title={"Projects"} listItems={projectData} />

@@ -15,7 +15,7 @@ export function Footer({}: FooterProps) {
     <Box
       sx={{
         backgroundColor: "#343434",
-        padding: { xs: "10px 20px 10px", md: "10px 120px 10px" },
+        padding: { xs: "10px 25px 10px", md: "10px 120px 10px" },
       }}
     >
       <Grid container justifyContent="space-between" alignItems="center">

@@ -1,6 +1,5 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -18,7 +17,7 @@ export function NavBar() {
     <AppBar
       sx={{
         backgroundColor: "#343434",
-        padding: { xs: "10px 50px 10px", md: "0px 120px 0px" },
+        padding: { xs: "0px 50px 0px", md: "0px 120px 0px" },
       }}
     >
       <Container

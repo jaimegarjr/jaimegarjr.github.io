@@ -5,7 +5,7 @@ export function HeaderText() {
   const headerTextStyling = {
     fontFamily: "Poppins",
     fontWeight: 800,
-    fontSize: { xs: 60, md: 80 },
+    fontSize: { xs: 50, md: 80 },
     color: "white",
   };
 
