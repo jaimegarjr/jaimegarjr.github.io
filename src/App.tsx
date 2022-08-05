@@ -4,30 +4,41 @@ import { Header } from "./components/Header";
 import { NavBar } from "./components/NavBar";
 import { experienceData, projectData } from "./components/__mocks__/resumeData";
 import { Section } from "./components/Section";
+import { Box, Theme } from "@mui/material";
 
 function App() {
   return (
-    <div style={{ overflowX: "hidden" }}>
+    <Box
+      sx={{
+        overflowX: "hidden",
+      }}
+    >
       <NavBar />
+      <Box
+        sx={(theme: Theme) => ({
+          ...theme.mixins.toolbar,
+        })}
+      />
       <Header />
-      <div
+      <Box
         style={{
           backgroundColor: "#525252",
           padding: "30px 0px 30px 120px",
         }}
       >
         <Section title={"Experience"} listItems={experienceData} />
-      </div>
-      <div
+      </Box>
+      <Box
         style={{
           backgroundColor: "#737373",
           padding: "30px 0px 30px 120px",
         }}
       >
         <Section title={"Projects"} listItems={projectData} />
-      </div>
+      </Box>
+
       <Footer />
-    </div>
+    </Box>
   );
 }
 

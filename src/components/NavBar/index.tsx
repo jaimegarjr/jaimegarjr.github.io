@@ -5,9 +5,13 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import { Grid } from "@mui/material";
+import LaunchIcon from "@mui/icons-material/Launch";
 
 export function NavBar() {
-  const pages: string[] = ["experience", "projects", "dribbble"];
+  const handleNewTabLink = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <AppBar
@@ -33,36 +37,60 @@ export function NavBar() {
               color: "inherit",
               textDecoration: "none",
               letterSpacing: 5,
+              overflow: "inherit",
             }}
           >
             JAIME GARCIA, JR.
           </Typography>
 
-          <Box
+          <Grid
+            container
+            spacing={2}
             sx={{
               flexGrow: 1,
               display: { xs: "none", md: "flex" },
               justifyContent: "end",
             }}
           >
-            {pages.map((page) => (
+            {["experience", "projects"].map((page) => (
+              <Grid item>
+                <Button
+                  key={page}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    textTransform: "none",
+                    fontFamily: "Montserrat",
+                    "&:hover": {
+                      backgroundColor: "#424242",
+                    },
+                  }}
+                >
+                  {page}
+                </Button>
+              </Grid>
+            ))}
+            <Grid item>
               <Button
-                key={page}
                 sx={{
                   my: 2,
                   color: "white",
-                  display: "block",
                   textTransform: "none",
                   fontFamily: "Montserrat",
                   "&:hover": {
                     backgroundColor: "#424242",
                   },
                 }}
+                endIcon={<LaunchIcon />}
+                onClick={() => {
+                  handleNewTabLink("https://dribbble.com/jaimegarciajr");
+                }}
               >
-                {page}
+                dribbble
               </Button>
-            ))}
-          </Box>
+            </Grid>
+          </Grid>
         </Toolbar>
       </Container>
     </AppBar>
