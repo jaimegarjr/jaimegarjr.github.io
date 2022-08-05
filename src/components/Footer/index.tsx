@@ -3,12 +3,9 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import React from "react";
+import { handleClickUrl } from "../utils/handleClickUrl";
 
 export function Footer() {
-  const handleNewTabLink = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <Box
       sx={{
@@ -23,9 +20,7 @@ export function Footer() {
               <IconButton
                 sx={{ color: "#FFFFFF" }}
                 onClick={() =>
-                  handleNewTabLink(
-                    "https://www.linkedin.com/in/jaime-garcia-jr/"
-                  )
+                  handleClickUrl("https://www.linkedin.com/in/jaime-garcia-jr/")
                 }
               >
                 <LinkedInIcon />
@@ -34,9 +29,7 @@ export function Footer() {
             <Grid item>
               <IconButton
                 sx={{ color: "#FFFFFF" }}
-                onClick={() =>
-                  handleNewTabLink("https://github.com/jaimegarjr")
-                }
+                onClick={() => handleClickUrl("https://github.com/jaimegarjr")}
               >
                 <GitHubIcon />
               </IconButton>
@@ -45,7 +38,7 @@ export function Footer() {
               <IconButton
                 sx={{ color: "#FFFFFF" }}
                 onClick={() =>
-                  handleNewTabLink("https://www.instagram.com/jaimeg2725/")
+                  handleClickUrl("https://www.instagram.com/jaimeg2725/")
                 }
               >
                 <InstagramIcon />

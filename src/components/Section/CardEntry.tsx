@@ -1,14 +1,30 @@
-import { Avatar, Card, CardContent, Typography, Grid } from "@mui/material";
+import {
+  Avatar,
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  IconButton,
+} from "@mui/material";
+import LaunchIcon from "@mui/icons-material/Launch";
 import React from "react";
+import { handleClickUrl } from "../utils/handleClickUrl";
 
 interface CardEntryProps {
   icon: string;
   title: string;
   description: string;
   dates: string;
+  url?: string;
 }
 
-export function CardEntry({ icon, title, description, dates }: CardEntryProps) {
+export function CardEntry({
+  icon,
+  title,
+  description,
+  dates,
+  url,
+}: CardEntryProps) {
   return (
     <Card
       sx={{
@@ -42,16 +58,30 @@ export function CardEntry({ icon, title, description, dates }: CardEntryProps) {
             src={icon}
           />
 
-          <Typography
-            sx={{
-              fontFamily: "Poppins",
-              fontWeight: 500,
-              fontSize: 22,
-              color: "white",
-            }}
-          >
-            {title}
-          </Typography>
+          <Grid item>
+            <Grid container alignItems="center">
+              <Grid item>
+                <Typography
+                  sx={{
+                    fontFamily: "Poppins",
+                    fontWeight: 500,
+                    fontSize: 22,
+                    color: "white",
+                  }}
+                >
+                  {title}
+                </Typography>
+              </Grid>
+              {url && (
+                <IconButton
+                  sx={{ color: "white" }}
+                  onClick={() => handleClickUrl(url)}
+                >
+                  <LaunchIcon />
+                </IconButton>
+              )}
+            </Grid>
+          </Grid>
 
           <Typography
             sx={{

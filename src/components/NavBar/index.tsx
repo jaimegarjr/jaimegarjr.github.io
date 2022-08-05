@@ -7,12 +7,9 @@ import Button from "@mui/material/Button";
 import { Grid } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { HashLink } from "react-router-hash-link";
+import { handleClickUrl } from "../utils/handleClickUrl";
 
 export function NavBar() {
-  const handleNewTabLink = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <AppBar
       sx={{
@@ -89,7 +86,7 @@ export function NavBar() {
                 }}
                 endIcon={<LaunchIcon />}
                 onClick={() => {
-                  handleNewTabLink("https://dribbble.com/jaimegarciajr");
+                  handleClickUrl("https://dribbble.com/jaimegarciajr");
                 }}
               >
                 dribbble
