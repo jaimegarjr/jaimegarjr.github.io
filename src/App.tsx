@@ -21,6 +21,7 @@ function App() {
       />
       <Header />
       <Box
+        id="experience"
         sx={{
           backgroundColor: "#525252",
           padding: { xs: "10px 50px 10px", md: "30px 0px 30px 120px" },
@@ -29,6 +30,7 @@ function App() {
         <Section title={"Experience"} listItems={experienceData} />
       </Box>
       <Box
+        id="projects"
         sx={{
           backgroundColor: "#737373",
           padding: { xs: "10px 50px 10px", md: "30px 0px 30px 120px" },

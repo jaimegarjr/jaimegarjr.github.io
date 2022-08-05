@@ -7,6 +7,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { Grid } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { HashLink } from "react-router-hash-link";
 
 export function NavBar() {
   const handleNewTabLink = (url: string) => {
@@ -53,21 +54,27 @@ export function NavBar() {
           >
             {["experience", "projects"].map((page) => (
               <Grid item>
-                <Button
-                  key={page}
-                  sx={{
-                    my: 2,
-                    color: "white",
-                    display: "block",
-                    textTransform: "none",
-                    fontFamily: "Montserrat",
-                    "&:hover": {
-                      backgroundColor: "#424242",
-                    },
-                  }}
+                <HashLink
+                  smooth
+                  to={`/#${page}`}
+                  style={{ textDecoration: "none" }}
                 >
-                  {page}
-                </Button>
+                  <Button
+                    key={page}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      textTransform: "none",
+                      fontFamily: "Montserrat",
+                      "&:hover": {
+                        backgroundColor: "#424242",
+                      },
+                    }}
+                  >
+                    {page}
+                  </Button>
+                </HashLink>
               </Grid>
             ))}
             <Grid item>
