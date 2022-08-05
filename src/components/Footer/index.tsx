@@ -4,9 +4,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import React from "react";
 
-interface FooterProps {}
-
-export function Footer({}: FooterProps) {
+export function Footer() {
   const handleNewTabLink = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
