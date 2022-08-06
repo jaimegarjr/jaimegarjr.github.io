@@ -2,7 +2,7 @@
 
 Developer Portfolio - Jaime Garcia, Jr.
 
-Made with love in React + Typescript ❤
+Made with ❤ in React + Typescript
 
 Website Link:
 https://jaimegarjr.github.io/
