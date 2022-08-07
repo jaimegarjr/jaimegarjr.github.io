@@ -21,7 +21,7 @@ export const experienceData = [
     icon: "images/utrgv_logo.png",
     title: "UT Rio Grande Valley",
     description: "IT Web Developer",
-    dates: "Jul 2020 - Dec 2022",
+    dates: "Jul 2020 - Dec 2020",
   },
 ];
 
