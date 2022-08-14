@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
 import React from "react";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { handleClickUrl } from "../utils/handleClickUrl";
 
 interface CardEntryProps {
@@ -15,7 +16,8 @@ interface CardEntryProps {
   title: string;
   description: string;
   dates: string;
-  url?: string;
+  github?: string;
+  live?: string;
 }
 
 export function CardEntry({
@@ -23,7 +25,8 @@ export function CardEntry({
   title,
   description,
   dates,
-  url,
+  github,
+  live,
 }: CardEntryProps) {
   return (
     <Card
@@ -59,7 +62,7 @@ export function CardEntry({
           />
 
           <Grid item>
-            <Grid container alignItems="center">
+            <Grid container spacing={1} alignItems="center">
               <Grid item>
                 <Typography
                   sx={{
@@ -72,13 +75,25 @@ export function CardEntry({
                   {title}
                 </Typography>
               </Grid>
-              {url && (
-                <IconButton
-                  sx={{ color: "white" }}
-                  onClick={() => handleClickUrl(url)}
-                >
-                  <LaunchIcon />
-                </IconButton>
+              {github && (
+                <Grid item>
+                  <IconButton
+                    sx={{ color: "white", padding: 0 }}
+                    onClick={() => handleClickUrl(github)}
+                  >
+                    <GitHubIcon />
+                  </IconButton>
+                </Grid>
+              )}
+              {live && (
+                <Grid item>
+                  <IconButton
+                    sx={{ color: "white", padding: 0 }}
+                    onClick={() => handleClickUrl(live)}
+                  >
+                    <LaunchIcon />
+                  </IconButton>
+                </Grid>
               )}
             </Grid>
           </Grid>
