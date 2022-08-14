@@ -38,7 +38,7 @@ export function Footer() {
               <IconButton
                 sx={{ color: "#FFFFFF" }}
                 onClick={() =>
-                  handleClickUrl("https://www.instagram.com/jaimeg2725/")
+                  handleClickUrl("https://www.instagram.com/jaimegarjr/")
                 }
               >
                 <InstagramIcon />
