@@ -32,7 +32,7 @@ export function NavBar() {
               fontFamily: "Poppins",
               color: "inherit",
               textDecoration: "none",
-              letterSpacing: 5,
+              letterSpacing: { xs: 2, md: 5 },
               overflow: "inherit",
             }}
           >
