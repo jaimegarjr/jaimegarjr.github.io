@@ -1,47 +1,97 @@
-import React from "react";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { NavBar } from "./components/NavBar";
-import { experienceData, projectData } from "./components/__mocks__/resumeData";
-import { Section } from "./components/Section";
-import { Box, Theme } from "@mui/material";
+import { useEffect, useRef } from 'react';
+import { Github, Linkedin, Instagram, Dribbble, Download } from 'lucide-react';
+import { motion } from 'motion/react';
+import * as THREE from 'three';
+import VANTA_FOG from 'vanta/dist/vanta.fog.min';
 
-function App() {
+const socials = [
+  { label: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/in/jaime-garcia-jr/' },
+  { label: 'GitHub', icon: Github, url: 'https://github.com/jaimegarjr' },
+  { label: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/jaimegarjr/' },
+  { label: 'Dribbble', icon: Dribbble, url: 'https://dribbble.com/jaimegarciajr' },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0 },
+};
+
+export default function App() {
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<{ destroy: () => void } | null>(null);
+
+  useEffect(() => {
+    if (!vantaEffect.current && vantaRef.current) {
+      vantaEffect.current = VANTA_FOG({
+        el: vantaRef.current,
+        THREE,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        highlightColor: 0x93c5fd,
+        midtoneColor: 0x60a5fa,
+        lowlightColor: 0x0052cc,
+        baseColor: 0x001f5c,
+        blurFactor: 0.9,
+        speed: 0.8,
+        zoom: 0.2,
+      });
+    }
+    return () => {
+      vantaEffect.current?.destroy();
+      vantaEffect.current = null;
+    };
+  }, []);
+
   return (
-    <Box
-      sx={{
-        overflowX: "hidden",
-      }}
-    >
-      <NavBar />
-      <Box
-        sx={(theme: Theme) => ({
-          ...theme.mixins.toolbar,
-        })}
-      />
-      <Header />
-      <Box
-        id="experience"
-        sx={{
-          backgroundColor: "#525252",
-          padding: { xs: "10px 50px 10px", md: "30px 120px 30px 120px" },
-        }}
+    <div ref={vantaRef} className="min-h-screen flex items-center justify-center">
+      <motion.div
+        className="relative flex flex-col items-center gap-6"
+        variants={{ show: { transition: { staggerChildren: 0.12 } } }}
+        initial="hidden"
+        animate="show"
       >
-        <Section title={"Experience"} listItems={experienceData} />
-      </Box>
-      <Box
-        id="projects"
-        sx={{
-          backgroundColor: "#737373",
-          padding: { xs: "10px 50px 10px", md: "30px 120px 30px 120px" },
-        }}
-      >
-        <Section title={"Projects"} listItems={projectData} />
-      </Box>
-
-      <Footer />
-    </Box>
+        <motion.div
+          className="w-24 h-24 rounded-full overflow-hidden"
+          variants={fadeUp}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <img
+            src="/images/jaime_ai.jpeg"
+            alt="Jaime Garcia Jr."
+            className="w-full h-full scale-125 translate-y-2"
+          />
+        </motion.div>
+        <motion.div className="text-center" variants={fadeUp} transition={{ duration: 0.5, ease: 'easeOut' }}>
+          <h1 className="text-2xl font-semibold text-primary">Jaime Garcia Jr.</h1>
+          <p className="text-muted mt-1 text-sm">Software Engineer at Atlassian</p>
+        </motion.div>
+        <motion.div className="flex items-center gap-6" variants={fadeUp} transition={{ duration: 0.5, ease: 'easeOut' }}>
+          {socials.map(({ label, icon: Icon, url }) => (
+            <a
+              key={label}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="text-muted hover:text-primary transition-colors duration-200"
+            >
+              <Icon size={20} strokeWidth={1.5} />
+            </a>
+          ))}
+        </motion.div>
+        <motion.a
+          href="/assets/Resume - Jaime Garcia Jr. (RECENT).pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-xs text-muted border border-muted/30 rounded-full px-4 py-2 hover:text-primary hover:border-muted/60 transition-colors duration-200"
+          variants={fadeUp}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <Download size={13} strokeWidth={1.5} />
+          Resume
+        </motion.a>
+      </motion.div>
+    </div>
   );
 }
-
-export default App;
