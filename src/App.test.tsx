@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
 import App from './App';
 
@@ -50,4 +50,22 @@ test('renders resume download', () => {
     'href',
     '/assets/Resume - Jaime Garcia Jr. (RECENT).pdf',
   );
+});
+
+test('tracks profile and resume clicks', () => {
+  window.gtag = vi.fn();
+  render(<App />);
+
+  fireEvent.click(screen.getByRole('link', { name: 'GitHub' }));
+  expect(window.gtag).toHaveBeenCalledWith('event', 'profile_link_click', {
+    link_name: 'GitHub',
+    link_section: 'Software',
+    link_url: 'https://github.com/jaimegarjr',
+  });
+
+  fireEvent.click(screen.getByRole('link', { name: 'Resumé' }));
+  expect(window.gtag).toHaveBeenCalledWith('event', 'resume_download', {
+    file_name: 'Resume - Jaime Garcia Jr. (RECENT).pdf',
+    link_url: '/assets/Resume - Jaime Garcia Jr. (RECENT).pdf',
+  });
 });

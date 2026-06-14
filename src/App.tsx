@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { siBandcamp, siInstagram, siSoundcloud, siTiktok, siYoutube } from 'simple-icons';
 import * as THREE from 'three';
 import VANTA_FOG from 'vanta/dist/vanta.fog.min';
+import { trackEvent } from './analytics';
 
 type SimpleIconData = {
   path: string;
@@ -48,7 +49,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0 },
 };
 
-function ProfileLink({ profile }: { profile: Profile }) {
+function ProfileLink({ profile, section }: { profile: Profile; section: string }) {
   const { accessibleLabel, icon: Icon, label, simpleIcon, url } = profile;
   const linkLabel = accessibleLabel ?? label;
 
@@ -59,6 +60,13 @@ function ProfileLink({ profile }: { profile: Profile }) {
       rel="noopener noreferrer"
       aria-label={linkLabel}
       title={linkLabel}
+      onClick={() =>
+        trackEvent('profile_link_click', {
+          link_name: linkLabel,
+          link_section: section,
+          link_url: url,
+        })
+      }
       className="group flex min-w-20 flex-col items-center gap-1 text-muted transition-colors duration-200 hover:text-primary focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
     >
       <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/0 transition duration-200 group-hover:-translate-y-0.5 group-hover:border-white/15 group-hover:bg-white/5">
@@ -96,7 +104,11 @@ function ProfileSection({ label, profiles }: { label: string; profiles: Profile[
       </div>
       <div className="flex flex-wrap items-start justify-center gap-x-6 gap-y-5">
         {profiles.map((profile) => (
-          <ProfileLink key={profile.accessibleLabel ?? profile.label} profile={profile} />
+          <ProfileLink
+            key={profile.accessibleLabel ?? profile.label}
+            profile={profile}
+            section={label}
+          />
         ))}
       </div>
     </section>
@@ -157,6 +169,12 @@ export default function App() {
           href="/assets/Resume - Jaime Garcia Jr. (RECENT).pdf"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent('resume_download', {
+              file_name: 'Resume - Jaime Garcia Jr. (RECENT).pdf',
+              link_url: '/assets/Resume - Jaime Garcia Jr. (RECENT).pdf',
+            })
+          }
           className="inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-3 text-sm font-medium text-surface shadow-lg shadow-black/10 transition duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
           variants={fadeUp}
           transition={{ duration: 0.5, ease: 'easeOut' }}
